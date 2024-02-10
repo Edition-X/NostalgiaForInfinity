@@ -25,13 +25,15 @@ spec:
         - name: strategy
           mountPath: "/freqtrade/strategy"
           subPath: "NostalgiaForInfinityX4.py"
-        command: ["trade"]
-        args:
-        - "--config"
-        - "configs/config.json"
-        - "--strategy"
-        - "NostalgiaForInfinityX4"
-        - "--dry-run"
+        command: ["/bin/sh", "-c"]
+        args: ["trade --config configs/config.json --strategy NostalgiaForInfinityX4 --dry-run"]
+        # command: ["trade"]
+        # args:
+        # - "--config"
+        # - "configs/config.json"
+        # - "--strategy"
+        # - "NostalgiaForInfinityX4"
+        # - "--dry-run"
         ports:
         - containerPort: 8080
         env:
