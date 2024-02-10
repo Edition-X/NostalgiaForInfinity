@@ -3,7 +3,7 @@
   // Please use at own risk
   // For full documentation on Freqtrade configration files please visit https://www.freqtrade.io/en/stable/configuration/
   "dry_run": true,
-  "dry_run_wallet": 10000,
+  "dry_run_wallet": 100,
   "grinding_enable": true,
   "max_open_trades": 6,
   "stake_currency": "USDT",
@@ -47,7 +47,7 @@
     "price_last_balance": 0
   },
   "exchange": {
-    "name": "",
+    "name": "binance",
     "key": "",
     "password": "",
     "secret": "",
@@ -75,6 +75,17 @@
           }
         }
       }
+    },
+    "api_server": {
+        "enabled": true,
+        "listen_ip_address": "0.0.0.0",
+        "listen_port": 8080,
+        "verbosity": "info",
+        "enable_openapi": true,
+        "jwt_secret_key": "somethingrandom123",
+        "CORS_origins": ["http://localhost:8080"],
+        "username": "admin",
+        "password": "admin123"
     },
     "ccxt_async_config": {
       "enableRateLimit": true,
