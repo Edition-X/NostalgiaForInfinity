@@ -23,7 +23,7 @@ spec:
         - name: configs
           mountPath: "/freqtrade/configs"
         - name: strategy
-          mountPath: "/freqtrade/NostalgiaForInfinityX4.py"
+          mountPath: "/freqtrade/strategy"
           subPath: "NostalgiaForInfinityX4.py"
         command: ["trade"]
         args:
@@ -57,5 +57,4 @@ spec:
           path: /home/ansible/NostalgiaForInfinity/configs
       - name: strategy
         hostPath:
-          path: /home/ansible/NostalgiaForInfinity/NostalgiaForInfinityX4.py
-
+          path: /home/ansible/NostalgiaForInfinity/
