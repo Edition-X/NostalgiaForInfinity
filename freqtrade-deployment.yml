@@ -22,9 +22,8 @@ spec:
           mountPath: "/freqtrade/user_data/data"
         - name: configs
           mountPath: "/freqtrade/configs"
-        - name: strategy
-          mountPath: "/freqtrade/strategy"
-          subPath: "NostalgiaForInfinityX4.py"
+        - name: NostalgiaForInfinityX4.py
+          mountPath: "/freqtrade/NostalgiaForInfinityX4.py"
         command: ["/bin/sh", "-c"]
         args: ["sleep infinity"]
         # command: ["trade"]
