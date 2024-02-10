@@ -23,14 +23,14 @@ spec:
         - name: configs
           mountPath: "/freqtrade/configs"
         - name: strategy
-          mountPath: "/freqtrade/${STRATEGY_NAME:-NostalgiaForInfinityX4}.py"
-          subPath: "${STRATEGY_NAME:-NostalgiaForInfinityX4}.py"
+          mountPath: "/freqtrade/NostalgiaForInfinityX4.py"
+          subPath: "NostalgiaForInfinityX4.py"
         command: ["trade"]
         args:
         - "--config"
         - "configs/config.json"
         - "--strategy"
-        - "${STRATEGY_NAME:-NostalgiaForInfinityX4}"
+        - "NostalgiaForInfinityX4"
         - "--dry-run"
         ports:
         - containerPort: 8080
@@ -48,14 +48,14 @@ spec:
       volumes:
       - name: user-data
         hostPath:
-          path: /home/ansible/user_data
+          path: /home/ansible/NostalgiaForInfinity/user_data
       - name: data
         hostPath:
-          path: /home/ansible/user_data/data
+          path: /home/ansible/NostalgiaForInfinity/user_data/data
       - name: configs
         hostPath:
-          path: /home/ansible/configs
+          path: /home/ansible/NostalgiaForInfinity/configs
       - name: strategy
         hostPath:
-          path: /home/ansible/NostalgiaForInfinityX4.py
+          path: /home/ansible/NostalgiaForInfinity/NostalgiaForInfinityX4.py
 
