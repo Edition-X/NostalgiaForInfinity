@@ -25,7 +25,8 @@ spec:
         - name: strategy
           mountPath: "/freqtrade/strategy"
           subPath: "NostalgiaForInfinityX4.py"
-        command: ["echo 'hey'"]
+        command: ["/bin/sh", "-c"]
+        args: ["sleep infinity"]
         # command: ["trade"]
         # args:
         # - "--config"
