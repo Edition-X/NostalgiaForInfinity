@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: freqtrade-dry-run
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: freqtrade-dry-run
+  template:
+    metadata:
+      labels:
+        app: freqtrade-dry-run
+    spec:
+      containers:
+      - name: freqtrade
+        image: freqtradeorg/freqtrade:stable
+        volumeMounts:
+        - name: user-data
+          mountPath: "/freqtrade/user_data"
+        - name: data
+          mountPath: "/freqtrade/user_data/data"
+        - name: configs
+          mountPath: "/freqtrade/configs"
+        - name: strategy
+          mountPath: "/freqtrade/${STRATEGY_NAME:-NostalgiaForInfinityX4}.py"
+          subPath: "${STRATEGY_NAME:-NostalgiaForInfinityX4}.py"
+        command: ["trade"]
+        args:
+        - "--config"
+        - "configs/config.json"
+        - "--strategy"
+        - "${STRATEGY_NAME:-NostalgiaForInfinityX4}"
+        - "--dry-run"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: FT_MODE
+          value: "dry_run"
+        - name: EXCHANGE
+          value: "binance"
+        - name: STRATEGY_NAME
+          value: "NostalgiaForInfinityX4"
+        - name: TRADING_MODE
+          value: "spot"
+        - name: FT_WEBUI
+          value: "1"
+      volumes:
+      - name: user-data
+        hostPath:
+          path: /home/ansible/user_data
+      - name: data
+        hostPath:
+          path: /home/ansible/user_data/data
+      - name: configs
+        hostPath:
+          path: /home/ansible/configs
+      - name: strategy
+        hostPath:
+          path: /home/ansible/NostalgiaForInfinityX4.py
+
