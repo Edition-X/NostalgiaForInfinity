@@ -23,7 +23,8 @@ spec:
         - name: configs
           mountPath: "/freqtrade/configs"
         - name: strategy 
-          mountPath: "/freqtrade/strategy"
+          mountPath: "/freqtrade/NostalgiaForInfinityX4.py"  # Specify the file path in the container
+          subPath: "NostalgiaForInfinityX4.py"
         command: ["/bin/sh", "-c"]
         args: ["sleep infinity"]
         # command: ["trade"]
