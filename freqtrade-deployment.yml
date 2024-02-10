@@ -26,14 +26,7 @@ spec:
           mountPath: "/freqtrade/NostalgiaForInfinityX4.py"  # Specify the file path in the container
           subPath: "NostalgiaForInfinityX4.py"
         command: ["/bin/sh", "-c"]
-        args: ["sleep infinity"]
-        # command: ["trade"]
-        # args:
-        # - "--config"
-        # - "configs/config.json"
-        # - "--strategy"
-        # - "NostalgiaForInfinityX4"
-        # - "--dry-run"
+        args: ["freqtrade trade --config configs/config.json --dry-run"]
         ports:
         - containerPort: 8080
         env:
