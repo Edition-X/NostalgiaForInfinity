@@ -25,7 +25,7 @@ spec:
         - name: strategy
           mountPath: "/freqtrade/strategy"
           subPath: "NostalgiaForInfinityX4.py"
-        command: ["trade"]
+        command: ["freqtrade trade"]
         args:
         - "--config"
         - "configs/config.json"
