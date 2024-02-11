@@ -25,6 +25,8 @@ spec:
         - name: strategy 
           mountPath: "/freqtrade/NostalgiaForInfinityX4.py"  # Specify the file path in the container
           subPath: "NostalgiaForInfinityX4.py"
+        - name: tz-volume
+          mountPath: /etc/localtime
         command: ["/bin/sh", "-c"]
         args: ["freqtrade trade --config configs/config.json --dry-run"]
         ports:
@@ -53,3 +55,6 @@ spec:
       - name: strategy
         hostPath:
           path: /home/ansible/NostalgiaForInfinity/
+      - name: tz-volume
+        hostPath:
+          path: /etc/localtime
