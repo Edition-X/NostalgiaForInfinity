@@ -15,6 +15,11 @@ spec:
       containers:
       - name: freqtrade
         image: freqtradeorg/freqtrade:stable
+        resources:
+          limits:
+            cpu: "3600m"
+          requests:
+            cpu: "1000m"
         volumeMounts:
         - name: user-data
           mountPath: "/freqtrade/user_data"
